@@ -9,7 +9,7 @@ async function bootstrap() {
   app.enableCors({
     origin: 'https://frontend-djyauhen-djzhen1996s-projects.vercel.app', // Второй продакшн фронтен
     methods: 'GET,POST,PUT,DELETE,PATCH',
-    allowedHeaders: 'Content-Type, Authorization',
+    allowedHeaders: 'Content-Type, Authorization, X-Custom-Header',
     credentials: true,
     preflightContinue: false,
     optionsSuccessStatus: 204,
