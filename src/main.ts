@@ -10,6 +10,7 @@ async function bootstrap() {
     origin: [
       'http://localhost:4200', // Локальный фронтенд
       'https://frontend-chi-lake.vercel.app/', // Второй продакшн фронтенд
+      'https://frontend-djyauhen-djzhen1996s-projects.vercel.app/', // Второй продакшн фронтенд
     ],
     methods: 'GET,POST,PUT,DELETE,PATCH',
     allowedHeaders: 'Content-Type, Authorization',
