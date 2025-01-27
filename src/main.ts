@@ -7,10 +7,7 @@ async function bootstrap() {
   app.use(cookieParser());
 
   app.enableCors({
-    origin: [
-      'http://localhost:4200', // Разрешен локальный фронтенд
-      'https://frontend-djyauhen-djzhen1996s-projects.vercel.app', // Продакшн фронтенд
-    ],
+    origin: 'https://frontend-djyauhen-djzhen1996s-projects.vercel.app', // Продакшн фронтенд
     methods: '*', // Разрешенные HTTP-методы
     allowedHeaders: '*', // Разрешенные заголовки
     credentials: true, // Поддержка cookies и токенов
