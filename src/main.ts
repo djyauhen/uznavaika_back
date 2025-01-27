@@ -24,6 +24,15 @@ async function bootstrap() {
     optionsSuccessStatus: 204,
   });
 
+  app.enableCors({
+    origin: 'https://frontend-chi-lake.vercel.app/',
+    methods: 'GET,POST,PUT,DELETE,PATCH',
+    allowedHeaders: 'Content-Type, Authorization',
+    credentials: true,
+    preflightContinue: false,
+    optionsSuccessStatus: 204,
+  });
+
   await app.listen(3000);
 }
 
