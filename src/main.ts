@@ -7,11 +7,19 @@ async function bootstrap() {
   app.use(cookieParser());
 
   app.enableCors({
-    origin: [
-      'http://localhost:4200', // Локальный фронтенд
-      'https://frontend-chi-lake.vercel.app', // Второй продакшн фронтенд
-      'https://frontend-djyauhen-djzhen1996s-projects.vercel.app', // Второй продакшн фронтенд
-    ],
+    origin: (origin, callback) => {
+      const allowedOrigins = [
+        'http://localhost:4200',
+        'https://frontend-chi-lake.vercel.app',
+        'https://frontend-djyauhen-djzhen1996s-projects.vercel.app',
+      ];
+
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true); // Разрешить запрос
+      } else {
+        callback(new Error('Not allowed by CORS')); // Заблокировать запрос
+      }
+    },
     methods: 'GET,POST,PUT,DELETE,PATCH',
     allowedHeaders: 'Content-Type, Authorization',
     credentials: true,
