@@ -7,12 +7,15 @@ async function bootstrap() {
   app.use(cookieParser());
 
   app.enableCors({
-    origin: 'https://frontend-djyauhen-djzhen1996s-projects.vercel.app', // Второй продакшн фронтен
-    methods: 'GET,POST,PUT,DELETE,PATCH',
-    allowedHeaders: 'Content-Type, Authorization, X-Custom-Header',
-    credentials: true,
-    preflightContinue: false,
-    optionsSuccessStatus: 204,
+    origin: [
+      'http://localhost:4200', // Разрешен локальный фронтенд
+      'https://frontend-djyauhen-djzhen1996s-projects.vercel.app', // Продакшн фронтенд
+    ],
+    methods: '*', // Разрешенные HTTP-методы
+    allowedHeaders: '*', // Разрешенные заголовки
+    credentials: true, // Поддержка cookies и токенов
+    preflightContinue: false, // Сервер сам отвечает на preflight-запросы
+    optionsSuccessStatus: 204, // HTTP-статус успешного ответа на preflight
   });
 
   await app.listen(3000);
