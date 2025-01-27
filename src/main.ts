@@ -7,25 +7,10 @@ async function bootstrap() {
   app.use(cookieParser());
 
   app.enableCors({
-    origin: 'http://localhost:4200',
-    methods: 'GET,POST,PUT,DELETE,PATCH',
-    allowedHeaders: 'Content-Type, Authorization',
-    credentials: true,
-    preflightContinue: false,
-    optionsSuccessStatus: 204,
-  });
-
-  app.enableCors({
-    origin: 'https://frontend-eta6rnca9-djzhen1996s-projects.vercel.app/',
-    methods: 'GET,POST,PUT,DELETE,PATCH',
-    allowedHeaders: 'Content-Type, Authorization',
-    credentials: true,
-    preflightContinue: false,
-    optionsSuccessStatus: 204,
-  });
-
-  app.enableCors({
-    origin: 'https://frontend-chi-lake.vercel.app/',
+    origin: [
+      'http://localhost:4200', // Локальный фронтенд
+      'https://frontend-chi-lake.vercel.app/', // Второй продакшн фронтенд
+    ],
     methods: 'GET,POST,PUT,DELETE,PATCH',
     allowedHeaders: 'Content-Type, Authorization',
     credentials: true,
