@@ -13,6 +13,7 @@ async function bootstrap() {
       const allowedOrigins = [
         'https://frontend-djyauhen-djzhen1996s-projects.vercel.app',
         'http://localhost:4200',
+        'https://45.128.205.139',
       ];
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
