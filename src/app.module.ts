@@ -27,7 +27,7 @@ import { join } from 'path';
     }),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'public'), // Путь к папке public
-      serveRoot: '/', // Файлы доступны по корневому маршруту
+      serveRoot: '/api', // Файлы доступны по корневому маршруту
     }),
     CategoriesModule,
     SubcategoriesModule,
