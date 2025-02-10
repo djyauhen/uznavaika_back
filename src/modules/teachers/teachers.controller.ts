@@ -62,9 +62,11 @@ export class TeachersController {
       storage: diskStorage({
         destination: './public/uploads/teachers', // Папка для сохранения файлов
         filename: (req, file, callback) => {
-          // Генерация уникального имени файла
-          const uniqueSuffix = `${uuidv4()}${extname(file.originalname)}`;
-          callback(null, uniqueSuffix);
+          if (file.size !== 0) {
+            // Генерация уникального имени файла
+            const uniqueSuffix = `${uuidv4()}${extname(file.originalname)}`;
+            callback(null, uniqueSuffix);
+          }
         },
       }),
     }),
@@ -74,7 +76,7 @@ export class TeachersController {
     @Param('id') id: string,
     @Body() updateTeacherDto: UpdateTeacherDto,
   ) {
-    if (file) {
+    if (file && file.size !== 0) {
       updateTeacherDto.path = `uploads/teachers/${file.filename}`;
     }
     return this.teachersService.update(id, updateTeacherDto);

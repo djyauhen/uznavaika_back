@@ -27,7 +27,9 @@ export class TeachersRepository {
     id: string,
     updateTeacherDto: UpdateTeacherDto,
   ): Promise<Teacher> {
-    await this.removePhoto(id);
+    if (updateTeacherDto.path) {
+      await this.removePhoto(id);
+    }
     return this.teacherModel.findByIdAndUpdate(id, updateTeacherDto);
   }
 

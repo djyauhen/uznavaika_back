@@ -13,6 +13,8 @@ import { PhotosModule } from './modules/photos/photos.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
+import { ContactService } from './modules/contact/contact.service';
+import { ContactController } from './modules/contact/contact.controller';
 
 @Module({
   imports: [
@@ -38,7 +40,7 @@ import { join } from 'path';
     PhotosModule,
     AuthModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, ContactController],
+  providers: [AppService, ContactService],
 })
 export class AppModule {}
