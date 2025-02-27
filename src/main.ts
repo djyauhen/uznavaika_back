@@ -11,7 +11,6 @@ async function bootstrap() {
   app.enableCors({
     origin: (origin, callback) => {
       const allowedOrigins = [
-        'https://frontend-djyauhen-djzhen1996s-projects.vercel.app',
         'http://localhost:4200',
         'https://45.128.205.139',
         'http://45.128.205.139',
@@ -22,7 +21,6 @@ async function bootstrap() {
         callback(new Error('Not allowed by CORS'));
       }
     },
-    // origin: 'https://frontend-djyauhen-djzhen1996s-projects.vercel.app', // Второй продакшн фронтен
     methods: 'GET,POST,PUT,DELETE,PATCH',
     allowedHeaders: 'Content-Type, Authorization, X-Custom-Header',
     credentials: true,
