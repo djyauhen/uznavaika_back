@@ -6,7 +6,6 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.setGlobalPrefix('api');
   app.use(cookieParser());
-  // app.use(new CorsMiddleware().use);
 
   app.enableCors({
     origin: (origin, callback) => {
@@ -14,6 +13,8 @@ async function bootstrap() {
         'http://localhost:4200',
         'https://45.128.205.139',
         'http://45.128.205.139',
+        'https://uznavaika-school.ru',
+        'http://uznavaika-school.ru',
       ];
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
